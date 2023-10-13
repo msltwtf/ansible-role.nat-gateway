@@ -7,7 +7,7 @@ name: Release
 
 defaults:
   run:
-    working-directory: msltwtf.replace_name
+    working-directory: msltwtf.nat-gateway
 
 jobs:
   test:
@@ -20,7 +20,7 @@ jobs:
       - name: Checkout codebase
         uses: actions/checkout@v3
         with:
-          path: msltwtf.replace_name
+          path: msltwtf.nat-gateway
 
       - name: Setup Python 3
         uses: actions/setup-python@v2

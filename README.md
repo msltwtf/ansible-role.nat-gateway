@@ -1,6 +1,6 @@
-# Ansible Role: replace_name
+# Ansible Role: nat-gateway
 
-[![CI](https://github.com/msltwtf/ansible-role.replace_name/actions/workflows/ci.yml/badge.svg)](https://github.com/msltwtf/ansible-role.replace_name/actions/workflows/ci.yml)
+[![CI](https://github.com/msltwtf/ansible-role.nat-gateway/actions/workflows/ci.yml/badge.svg)](https://github.com/msltwtf/ansible-role.nat-gateway/actions/workflows/ci.yml)
 
 # Requirements
 
@@ -19,7 +19,7 @@ None.
 ```yaml
 - hosts: all
   roles:
-    - msltwtf.replace_name
+    - msltwtf.nat-gateway
 ```
 
 # License

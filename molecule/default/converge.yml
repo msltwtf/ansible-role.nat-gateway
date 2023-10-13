@@ -2,6 +2,6 @@
 - name: Converge
   hosts: all
   tasks:
-    - name: "Include mslt.replace_name"
+    - name: "Include mslt.nat-gateway"
       include_role:
-        name: "msltwtf.replace_name"
+        name: "msltwtf.nat-gateway"
