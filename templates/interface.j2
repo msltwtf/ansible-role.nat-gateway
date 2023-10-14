@@ -1,0 +1,5 @@
+auto {{ nat_gateway_output_interface }}
+iface {{ nat_gateway_output_interface }} inet dhcp
+  {% for network in nat_gateway_networks %}
+  post-up iptables -t nat -A POSTROUTING -s '{{ network }}' -o {{ nat_gateway_output_interface }} -j MASQUERADE
+  {% endfor %}

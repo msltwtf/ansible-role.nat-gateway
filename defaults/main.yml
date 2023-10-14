@@ -1,2 +1,3 @@
 ---
 # defaults file for nat-gateway
+nat_gateway_output_interface: eth0

@@ -1,2 +1,29 @@
 ---
 # tasks file for nat-gateway
+
+- name: Enable IPv4 Portforwarding
+  ansible.posix.sysctl:
+    name: net.ipv4.ip_forward
+    value: '1'
+    sysctl_set: True
+  become: True
+
+- name: Set IPTables rules for running system
+  ansible.builtin.iptables:
+    chain: POSTROUTING
+    table: nat
+    jump: MASQUERADE
+    out_interface: "{{ nat_gateway_output_interface }}"
+    source: "{{ item }}"
+    state: present
+  become: True
+  loop: "{{ nat_gateway_networks }}"
+
+- name: Write interface config
+  ansible.builtin.template:
+    src: interface.j2
+    dest: "/etc/network/interfaces.d/{{ nat_gateway_output_interface }}.cfg"
+    owner: root
+    group: root
+    mode: '0644'
+  become: True
