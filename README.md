@@ -10,6 +10,21 @@ None.
 
 Available variables are listed below, along with default values from `defaults/main.yml`
 
+## nat_gateway_output_interface
+
+```yaml
+nat_gateway_output_interface: eth0
+```
+The output interface for the NAT traffic.
+
+## nat_gateway_networks
+
+**WARNING: Required variable without a default value!!!**
+
+```yaml
+nat_gateway_networks: []
+```
+
 # Dependencies
 
 None.
@@ -18,6 +33,9 @@ None.
 
 ```yaml
 - hosts: all
+  vars:
+    nat_gateway_networks:
+      - 10.0.0.0/8
   roles:
     - msltwtf.nat-gateway
 ```
